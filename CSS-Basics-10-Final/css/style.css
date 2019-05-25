@@ -1,0 +1,291 @@
+/* Web Fonts -------------------- */
+
+@font-face{
+  font-family: 'Abolition Regular';
+  src: url('../fonts/abolition-regular-webfont.eot'); /*"Embedded OpenType" For IE 9 compatability mode.*/
+  /*The first URL call below is a trick used to get this font to show up on older versions of IE. The next one is "Web Open Font Format" is a new font format developed by Mozilla that is supported by all modern browsers; plus it loads quickly because the date in this format is compressed. The third one is "TrueType Format" is used for Safari, Android and iOS display. NOTE: Loading too many fonts affects the sites load time (when using @font-face rule) so we only use the fonts we need.*/
+  src: url('../fonts/abolition-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/abolition-regular-webfont.woff') format('woff'),
+       url('../fonts/abolition-regular-webfont.ttf') format('truetype');
+}
+
+/* Base Styles -------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #878787;
+  margin: 0;
+  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Abolition Regular', Helvetica, Arial, sans-serif;
+}
+
+h1 {  
+  font-size: 5.625rem; /* 90px/16px  */
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1.3;
+  text-shadow: 2px 2px 1px rgba(0,0,0, .8); /*Horiz (can be negative), Vertical (can be negative), Blur Radius (Higher blur radius value, the blurrier the shadow gets), Color*/
+  
+  margin: 12px 0 0;
+}
+
+h2 {
+  font-size: 3.3125em; /* 53px/16px  */
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0 0 .5em; /* 0 0 26px */
+}
+
+h3 {
+  font-size: 1.25em; /* 20px/16px  */
+  color: #48525c;
+  line-height: 1.2;
+  margin-bottom: 1.7em; /* 34px */
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px; /*WAS 50%*/
+}
+
+ul,
+ol {
+  margin: 30px 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Pseudo-classes ------------------ */
+
+a:link {
+  color: rgb(255, 169, 73);
+  text-decoration: none;
+}
+
+a:visited {
+  color: lightblue;
+}
+
+a:hover {
+  color: rgba(255, 169, 73, .4);
+}
+
+a:active {
+  color: lightcoral;
+}
+
+/* Main Styles --------------------- */
+
+.main-header {
+  padding-top: 170px;
+  height: 850px; /*Was 450px to show off the different radial gradients*/
+  
+  background: linear-gradient(#ffa949, transparent 90%),
+      linear-gradient(0deg, #fff, transparent),
+      #ffa949 url('../img/mountains.jpg') no-repeat center; /*With declaring multiple backgrounds in one declaration, separated by a comma, the first one appears on top then the next one beneath the first and so on. In this example we have two color stops first being an orange color and the second the transparent value which is set to start at 90% near the bottom of the screen. The second gradient is set to go from white to transparent and start at the bottom going up (because of the 0deg).*/
+  
+  background-size: cover;
+  
+  /*background-image: linear-gradient(to top, #ffa949, firebrick); **The 'to top' reverses the color order to go from bottom to top instead of the default top to bottom (you would get the same result if you used the degree value '0deg'). The same thing would happen if you said 'to left' only then it would go from right to left. NOTE: With the 'deg' value you can do positive and negative and depending on which direction you go will decide where the gradient will start (ex. 90deg it will start on the left and go to the right). (NOTE: The color stops in the linear gradient works the same way as the radial gradient mentioned below. See the notes listed below for more details on how to apply to linear gradients).*/
+  
+  /*background-image: radial-gradient(circle at top right, #ffa949, firebrick, dodgerblue); **With just having the two colors declared, it will create a gradient that starts in the center and goes outwards in an elliptical fashion. When you add the 'circle' keyword to the declaration it makes the gradient display in an even circular fashion. With the 'circle at top' value put in there it makes it so the circle starts at the top and the gradient goes out from there (when just using the one value the 2nd value defaults to center). Otherwise if you do the 'circle at top right' it puts the circle in the top right corner of the element. With the 3rd color value, dodgerblue, added it displays a continuous gradient between those three colors, in the defined order, inside the element (NOTE: This is displaying with out using specific color stops; without those it sets default stops at 0 - 50deg, then from 51 - 100deg; If you wanted to define these in the declaration it would look like '#ffa949 0%, firebrick 50%, dodgerblue 100%'). As mentioned in the above note, if you change any of those three percent values that will accordingly change which point each color starts and stops at (ex. '#ffa949 0%, firebrick 20%, dodgerblue 100%'). (SECOND NOTE: You can also go above 100% as a color stop (ex. '#ffa949 0%, firebrick 60%, dodgerblue 120%')).*/
+}
+
+.title {
+  color: white;
+  font-size: 1.625rem; /* 26px/16px */
+  letter-spacing: .065em; /*This increases the spacing between letters.*/
+  font-weight: 200;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}
+
+.intro {
+  font-size: 1.25em; /* 20px/16px */
+  line-height: 1.6;
+  color: initial; /*This value displays the value that is designated as the properties initial value. So it ignores the inheritance from the "body" element setting the value back to black.*/
+}
+
+.primary-content,
+.main-header,
+.main-footer {
+  text-align: center;
+}
+
+.primary-content {
+	padding-top: 25px;
+  padding-bottom: 95px;
+}
+
+.secondary-content {
+	padding-top: 80px;
+	padding-bottom: 70px;
+  border-bottom: 2px solid #dfe2e6;
+}
+
+.callout {
+  font-size: 1.25em;
+  border-bottom: 3px solid;
+  padding: 0 9px 3px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.main-footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 10px solid #ffa949;
+}
+
+.t-border {
+  border-top: 2px solid #dfe2e6;
+}
+
+/* Layout Styles ------------------ */
+
+.primary-content, 
+.secondary-content {
+  width: 75%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: auto;
+  max-width: 960px;
+}
+
+.wildlife {
+  color: white;
+  text-align: left;
+  padding: 18% 24%;
+  border-top: 10px solid #ffa949;
+  margin: 105px 0 60px;
+  background: #434a52 url('../img/bear.jpg') no-repeat center;
+  background-size: cover;
+  box-shadow: inset 5px 5px 10px 10px rgba(0,0,0, .8); /*The value 'inset' is used to place the shadow inside the element (it must be placed either at the beginning or the end of the property declaration),Horiz (can be negative), Vertical (can be negative), Blur Radius (Higher blur radius value, the blurrier the shadow gets), Spread value (Larger the value the more shadow is spread, can be negative), Color. NOTE: IF YOU WERE TO USE A DECLARATION LIKE "box-shadow: inset 0 0 50px 10px rgba(0,0,0, 1)" IT WOULD PUT A SHADOW ON THE INSIDE OF THE ELEMENT AND SHOW IT EVENLY ON ALL FOUR SIDES OF THE ELEMENT.*/
+  
+  /*FOR THE border-radius VALUES, THE LARGER THE VALUE, THE GREATER THE CORNER IS ROUNDED. THERE IS A SHORTHAND VERSION USED BELOW.
+  border-top-left-radius: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 10px;*/
+  
+  /*border-radius: 50px 10px 50px 10px; THIS FOLLOWS THE ORDER GIVEN ABOVE.*/
+  /*border-radius: 50px 10px;  THIS IS A SHORTHAND FOR THE PROPERTY ABOVE.*/
+  border-radius: 10px; /*GIVES AN EVEN BORDER RADIUS ON ALL FOUR CORNERS. (YOU CAN ALSO USE PERCENTAGES i.e. 50%; AND IF YOU USE AN EQUAL WIDTH AND HEIGHT VALUE WHILE USING 50% IT WILL CREATE A PERFECT CIRCLE)*/
+}
+
+.arrow {
+  width: 50px;
+  margin-top: 150px;  
+}
+
+/* Floated Columns ------------------ */
+
+.resorts,
+.tips {
+  width: 46.5%;
+}
+
+.tips {
+  float: left;
+}
+
+.resorts {
+  float: right;
+}
+
+/* Float Clearfix ------------------ */
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Media Queries -------------------- */
+
+/*The media type 'all' is the default value so if I didn't declare it it would then be implied. The max-width value can be anything including percentages. NOTE: DO NOT put a ';' after the 960px. If you do the rest of the media query will be ignored. Also this max-width declaration targets anything at or below 960px;*/
+
+@media (max-width: 1024px) {
+  .primary-content, .secondary-content {
+    width: 90%;
+  }
+
+  .wildlife {
+    padding: 10% 12%;
+    margin: 50px 0 20px;
+  }
+}
+
+@media (amx-width: 768px) {
+  .primary-content, .secondary-content {
+    width: 100%;
+    padding: 20px;
+    border-top: none;
+  }
+  
+  .main-header {
+    max-height: 380px;
+    padding: 50px 25px 0;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+    border: none;    
+  }
+  
+  h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+  }
+  
+  .arrow {
+    display: none;
+  }
+  
+  .intro {
+    font-size: 1rem;
+  }
+  
+  .resorts, .tips {
+    float: none;
+    width: 100%;
+  }
+  
+  .main-footer {
+    padding: 20px 0;
+  }
+}
+
+/*Below was removed in the video. I am keeping this for reference.
+@media (max-width: 960px) {
+  body {
+    background: royalblue;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    background: darkred;
+  }
+} 
+
+@media (min-width: 481px) and (max-width: 700px) {
+  body {
+    background: seagreen;
+  }
+
+  p {
+    color: white;
+  }
+}
+*/
