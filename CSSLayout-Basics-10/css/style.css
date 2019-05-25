@@ -1,0 +1,233 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Varela Round', sans-serif;
+	line-height: 1.6;
+	color: #3a3a3a;
+}
+
+p {
+	font-size: .95em;
+	margin-bottom: 1.8em;
+}
+
+h2,
+h3,
+a {
+	color: #093a58;
+}
+
+h2,
+h3,
+h4 {
+	margin-top: 0;
+}
+
+h4 {
+	margin-bottom: .4em;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+figure {
+	margin: 0;
+	line-height: 0;
+  
+  position: relative;
+}
+
+figcaption {
+	font-size: .9em;
+	line-height: 1.5;
+	color: #fff;
+	padding: 1em;	
+	background: rgba(19,43,102, .60);
+  
+  position: absolute; /*Before the "figure" element above gains the releative posiioning, this content is removed from normal flow and makes itself as wide as its content. 
+                        Once the relative positioning is added then it is only as wide as its parent.*/
+  bottom: 0;
+  width: 100%;
+  
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.name {
+	font-size: 1.25em;
+	margin: 0;
+}
+
+.main-nav {
+	margin-top: 5px;
+}
+
+	.name a,
+	.main-nav a {
+		display: block;
+		text-align: center;
+		padding: 10px 15px;
+	}
+	
+	.main-nav a {
+		font-size: .95em;
+		color: #3acec2;
+		text-transform: uppercase;
+	}
+
+	.main-nav a:hover {
+		color: #093a58;
+	}
+
+/* ---- Layout Containers ---- */
+
+.main-header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+
+.banner,
+.main-footer {
+	text-align: center;
+}
+
+.banner {
+	color: #fff;
+	background: #3acec2;
+	padding: 3.2em 0;
+	margin-bottom: 60px;
+}
+
+.col {
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+.main-footer {
+	background: #d9e4ea;
+	padding: 2em 0;
+	margin-top: 30px;
+}
+
+/* ---- Page Elements ---- */
+
+.logo {
+	width: 190px;
+}
+
+.headline {
+	margin-bottom: 0;
+}
+
+.icon-location {
+  width: 35px;
+  position: absolute;
+  
+  /*These negative offsets move the element towards the direction they are assigned to by the amount they are assigned, in this case top and left and -15px. 
+    To place this icon in the right corner change the left offset to right.*/
+  top: -15px;
+  left: -15px;
+  
+  z-index: 2; /*Setting this value to show how this property affects elements on the page (while this is higher than the main navigation it will appear above.*/
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+  
+  body {
+    padding-top: 68px; /*This is to keep the fixed main navigation from covering up the top part of the page.*/
+  }
+
+  /*Positioned elements contain a stacking order that decides which elements are either above or below the others. 
+    So all of the elements using the position property are a part of this stacking order. This stacking order is decided by when the elements show up in the HTML of the page. 
+    So those that are later or farther down on the page will appear above those that are earlier or closer to the top of the page (ex. the figure element is below the main-heaer element so 
+    it is higher/above the main-header in the stacking order). You can adjust this stacking order of relative, absolute and fixed positioned elements by using the z-index property. Also when 
+    giving these elements a z-index property it gives the element a new stacking context for any children of that elemnt (ex. if you give a z-index to the .name or .main-nav elements they will 
+    be relative to the .main-header's z-index since that is the parent for those two).*/
+
+  .main-header {
+    position: fixed; /*The value fixed takes the content out of the document flow and is only as wide as the content inside of it. 
+                       Also since this is out of document flow it does not affect the position of other elements on the page.*/
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0);
+    width: 100%;
+    top: 0; /*This will keep the main-header anchored to the top of the page.*/
+    z-index: 1000; /*This value comes from the z-axis of the page. While the elements are positioned on the page using the x and y axis they are stacked in terms of the z axis. 
+                     The value for all relative, absolute and fixed positioning values is 0 by default. So making the z-index of one element a bigger number than the others will make that element 
+                     appear above the others no matter where it is in the HTML. I made this value 1000 so that no matter how many times I change the z-index of other elements this one will remain 
+                     above them.*/
+  }
+	
+  .container {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.name,
+	.col {
+		float: left;
+	}
+
+	.primary,
+	.secondary {
+		width: 50%;
+	}
+
+	.main-nav {
+		float: right;
+	}
+
+	.main-nav li {
+		display: inline-block;
+		margin-left: 15px;
+	}
+
+	.tagline {
+		font-size: 1.4em;
+	}
+
+	/* ---- Float clearfix ---- */
+
+	.clearfix::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+
+}
+
+@media (min-width: 1025px) {
+	
+	.container {
+		width: 80%;
+		max-width: 1150px;
+	}
+
+	.primary {
+		width: 40%;
+	}
+
+	.secondary,
+	.tertiary {
+		width: 30%;
+	}
+
+}
