@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Full Stack Conf</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css" >
+  </head>
+  
+  <!--
+  Ideas for adding to this project:
+
+  Add validation styles to the form, using Bootstrap's form validation messages
+  Use the Media object to enhance the Schedule layout by floating a speaker's thumbnail image to the left of their scheduled talk (these have already been included in the files of the course).
+  Add a collapsible component to each schedule item that shows and hides information about each talk
+  -->
+  
+  <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
+    <!-- Navbar
+    NOTE: This is outside of the pages main container so that it can stretch from one side of the page to the other. THe "order-1" class will make it so that link is sent to the right side of the navigation and flush with the right hand side. The classes "navbar-dark" and  "bg-primary" are what gives us the blue background navigation bar. The class "mr-0" is used to apply a marging of 0 to the right of the "Presented by ..." link. The "fixed-top" class makes it so that the navigation will stay fixed to the top no matter how much the user scrolls up and down on the page.
+
+    For the two attributes above in the body tag, "date-spy" and "data-target", they are used for a JavaScript plugin called Scrollspy. This plugin makes the navigation bar interactive in that depending on where the user is scrolling at on the page will determine which nav-link is highlighted. The class ".navbar" that is called in the data-target attribute is used to link the plugin to the navbar. Now the "data-offset" attribute listed above is used to make it so that the Scrollspy plugin will activate when the user is within 100 px (in this example) from the top of the target section.
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <!--This container is used to center the navigation links on the page and also horizontally align them with content below.-->
+      <div class="container">
+        <a class="navbar-brand order-1 mr-0" href="https://www.teamtreehouse.com" target="_blank">Presented by Treehouse</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#about">About</a>
+            <a class="nav-item nav-link" href="#speakers">Speakers</a>
+            <a class="nav-item nav-link" href="#schedule">Schedule</a>
+          </div>
+        </div>
+      </div>
+    </nav><!-- End Navbar -->
+    
+    <!-- Jumbotron 
+    NOTE: This will allow the Hero image to span the full width of the page and not have rounded corners. Also for the "Register Now" button we used to have the class "btn-secondary" added to it but we changed it to the "btn-primary" class to make it stand out more.
+    -->
+    <div class="jumbotron jumbotron-fluid bg-info text-white">
+      <div class="container text-sm-center pt-5">
+        <h1 class="display-2">Full Stack Conf</h1>
+        <p class="lead">A One-day Conference About All Things JavaScript!</p>
+        
+        <div class="btn-group mt-4" role="group" aria-label="Callout button">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">Register Now</button>
+          <a  class="btn btn-light btn-lg" href="#speakers">See Speakers</a>
+        </div>
+      </div>
+    </div><!-- End Jumbotron -->
+    
+    <div class="container pt-4">
+      <!-- About 
+      NOTE: The predefined "col" class below is a way to set up three equal column widths. These are a responsive fixed width container that is centered on the page. You could also use "container-fluid" above giving your columns the ability to span 100% of the width of the page but this is harder to read at small screen sizes so we will stick with the fixed width version.
+      
+      The "pt-4" is used here to adding padding to the top of the container and the amount is 1.4 rems.
+
+      The "col-lg" is setting the columns to be at the medium breakpoint which is greater than or equal to 992px. These are considered additive classes in that you don't need to add the other breakpoint classes meaning it will apply the appropriate layout from the given breakpoint up to the extra large breakpoint.
+
+      The "order-lg-..." classes are reordering the content on the page when the page is at the large breakpoint or greater.
+      -->
+      <div id="about" class="row">
+        <div class="col-lg order-lg-2">
+          <h3 class="mb-4">About Full Stack Conf</h3>
+          <!--The class "img-fluid" makes it so the image is responsive and will automatically scale down to the size of the column it is inside of on the page it is on. The class "rounded" makes the images corner rounded on all four corners.
+          
+          The class "d-none" sets the display value of the image to none at extra small grid and up. The class "d-sm-block" sets the image to have a block display at the small breakpoint and greater.
+          -->
+          <img class="mb-4 img-fluid rounded d-none d-sm-block" src="img/pdx.jpg" alt="Portland" />
+          <p>The beautiful city of Portland, Oregon will be the host city for Full Stack Conf!</p>
+          <p>Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.</p>
+        </div>
+        <div class="col-lg order-lg-1">
+          <h3 class="mb-4">Expert Speakers</h3>
+          <p>Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!</p>
+          <p>Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript.</p>
+          <p>Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.</p>
+        </div>
+        <div class="col-lg order-lg-3">
+          <h3 class="mb-4">What You'll Learn</h3>
+          
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action"><strong>MongoDB</strong>: NoSQL database</a>
+            <a href="#" class="list-group-item list-group-item-action"><strong>Express</strong>: Framework for Node</a>
+            <a href="#" class="list-group-item list-group-item-action"><strong>React</strong>: JavaScript library</a>
+            <a href="#" class="list-group-item list-group-item-action"><strong>Node.js</strong>: JavaScript environment</a>
+            <a href="#" class="list-group-item list-group-item-action"><strong>ES2015</strong>: Latest version of JavaScript</a>
+            <a href="#" class="list-group-item list-group-item-action"><strong>Babel</strong>: JavaScript compiler</a>
+          </div>
+          
+          <!--Below used to be what we were using but it was a little plain. So we added in the linked list group, using Bootstrap, seen above.
+          <ul>
+            <li><strong>MongoDB</strong>: NoSQL database</li>
+            <li><strong>Express</strong>: Framework for Node</li>
+            <li><strong>React</strong>: JavaScript library</li>
+            <li><strong>Node.js</strong>: JavaScript environment</li>
+            <li><strong>ES2015</strong>: Latest version of JavaScript</li>
+            <li><strong>Babel</strong>: JavaScript compiler</li>
+          </ul>-->
+        </div>
+      </div><!-- End About -->
+
+      <!-- Speakers 
+      NOTE: The class "my-5" is a shorthand way to apply a 3 rem margin to the top and bottom of the header. If you wanted to do the same to the left and right you would use the notation "mx-5" to give it the horizontal margins. To do it to all four sides you would use "m-5". The "text-muted" class lightens up the typography of the header.
+
+      The way the Grid works is if the number of columns at a breakpoint size is greater than 12 it will move the next set of content onto a new row. So with the below set up we will have 3 rows of 2 in medium devices and above.
+      -->
+      <h1 id="speakers" class="display-4 text-center my-5 text-muted">Speakers</h1>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <img class="card-img-top" src="img/vivianne.png" alt="Vivianne">
+            <div class="card-body">
+              <h4 class="card-title">Vivianne McVue</h4>
+              <p class="card-text">Vivianne is a web developer and teacher who is passionate about building scalable, data-driven web apps, especially ones that address old problems with new tech!</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <img class="card-img-top" src="img/nodestradamus.png" alt="NodeStradamus">
+            <div class="card-body">
+              <h4 class="card-title">NodeStradamus</h4>
+              <p class="card-text">"NodeStra" is a software engineer and philosopher trying to leave the world better than he found it. He codes for non-profits, eCommerce, and large-scale web apps.</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <img class="card-img-top" src="img/robbie.png" alt="Robbie">
+            <div class="card-body">
+              <h4 class="card-title">Robbie Redux</h4>
+              <p class="card-text">Robbie is a JavaScript developer working on large-scale applications. He's also a teacher who strives to support students in removing barriers to learning code.</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <img class="card-img-top" src="img/ecma.png" alt="Ecma">
+            <div class="card-body">
+              <h4 class="card-title">Ecma Scriptnstuff</h4>
+              <p class="card-text">Ecma found her passion for programming and teaching over 15 years ago. She is excited to introduce you to all of the wonders of JavaScript.</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <img class="card-img-top" src="img/jay.png" alt="Jay">
+            <div class="card-body">
+             <h4 class="card-title">Jay Query</h4>
+              <p class="card-text">Jay is a developer, author of CSS: The Missing Manual, JavaScript &amp; jQuery: The Missing Manual, and web development teacher.</p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <img class="card-img-top" src="img/json.png" alt="Json">
+            <div class="card-body">
+              <h4 class="card-title">Json Babel</h4>
+              <p class="card-text">All of his professional life, Json has worked with computers online; he is a polyglot programmer and likes using the right tools for the job.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- End Speakers -->
+      
+      <!-- Schedule -->
+      <h1 id="schedule" class="display-4 text-center my-5 text-muted">Schedule</h1>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Keynote: Internet of Things</h5>
+            <span class="badge badge-pill badge-info p-2">9:00am</span>
+          </div>
+          <p class="mb-1">NodeStradamus</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">React Basics</h5>
+            <span class="badge badge-pill badge-info p-2">10:00am</span>
+          </div>
+          <p class="mb-1">Vivianne McVue</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Hey, Mongo!</h5>
+            <span class="badge badge-pill badge-info p-2">11:00am</span>
+          </div>
+          <p class="mb-1">Jay Query</p>
+        </li>
+        <li class="list-group-item list-group-item-success">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Lunch</h5>
+            <span class="badge badge-pill badge-info p-2">12:00pm</span>
+          </div>
+          <p class="mb-1">Free pizza for everyone!</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Introducing ES2015</h5>
+            <span class="badge badge-pill badge-info p-2">1:00pm</span>
+          </div>
+          <p class="mb-1">Ecma Scriptnstuff</p>
+        </li> 
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">Getting Started With Redux</h5>
+            <span class="badge badge-pill badge-info p-2">2:00pm</span>
+          </div>
+          <p class="mb-1">Robbie Redux</p>
+        </li> 
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <h5 class="mb-1">What's Babel?</h5>
+            <span class="badge badge-pill badge-info p-2">3:00pm</span>
+          </div>
+          <p class="mb-1">Json Babel</p>
+        </li>        
+      </ul>      
+      <!-- End Schedule -->
+      
+      <!-- Callout Button -->
+      <button type="button" class="btn btn-outline-info btn-lg d-block mx-auto my-5" data-toggle="modal" data-target="#register">Don't Miss Out, Register Now</button>
+            
+      <!-- signup form 
+      NOTE: The "ml-auto" will set up a automatic left margin to the 2nd column which will force it over to be flush with the right edge of the container.
+      -->
+      <hr>
+      <div class="row py-4 text-muted">
+        <div class="col-md col-xl-5">
+          <p><strong>About Treehouse</strong></p>
+          <p>Treehouse brings affordable technology education to people everywhere to help them achieve their dreams and change the world.</p>
+        </div>
+        <div class="col-md col-xl-5 ml-auto">
+          <p><strong>Stay up-to-date on Full Stack Conf</strong></p>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Email">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button">Sign up</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <hr><!-- End signup form -->
+      
+      <!-- Footer -->
+      <div class="row py-3">
+        <div class="col-md-7">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Community</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tracks</a>
+            </li>
+            <li class="nav-item">
+              <!--Below is an example of split button. The class "dropup" reverses the arrow on this button so that it points up (since our dropdown menu is expanding up).-->
+              <div class="btn-group dropup">
+                <button type="button" class="btn btn-outline-secondary">Other Confs</button>
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">CSS Conf</a>
+                  <a class="dropdown-item" href="#">Python Conf</a>
+                  <a class="dropdown-item" href="#">Java Conf</a>
+                  <!--Used if you want a dividing line to you dropdown menue
+                  <div class="dropdown-divider"></div>-->
+                  <a class="dropdown-item" href="#">Swift Conf</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md text-md-right">
+          <small>&copy; 2017 Full Stack Conf &amp; Treehouse</small>
+        </div>
+      </div><!-- End Footer -->
+    </div><!-- End .container-->
+
+    <!--=====================================
+     FORM MODAL
+
+    NOTE: The modal windo we are setting up below is set to hidden by default so it will not show up on the page until it is linked to something, a trigger button. These are used to bring attention to important content and open up in the same window where the user activated it from. The class "modal-lg" makes the modal window opened even wider, however for this example we are sticking with the default size.
+
+    The classes added to the modal header, "bg-info" and "text-white" are being used to make that headline stand out from the rest.
+    =====================================-->
+    
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-info text-white">
+            <h5 class="modal-title" id="exampleModalLabel">Register for Full Stack Conf</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--Registration Form
+            NOTE: The class "form-control" below makes the form element a block level element and a width of 100%. This makes it so that each part of the form stacks on top of each other. Now if you wanted to change this you could give the "form" tag below the class "form-inline". Also you could remove the labels by adding the "placeholder" attribute with the appropriate name in it along with adding the class "sr-only" to the label to make it hidden for all devices except screen readers.
+
+            The class "custom-select" is used to make that form element display consistently across browsers and devices. Also the div with the class of "alert" right below is used to inform users that there is a discounted price in the first two days of registration. The alert is styled and animated using the other classes listed there.
+            -->
+            <form>
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Hurry!</strong> Early bird registration ends in two days.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <h5 class="mb-4">Basic Info</h5>
+              <div class="form-group">
+                <label class="form-control-label" for="name">Name:</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="form-group">
+                <label class="form-control-label" for="email">Email:</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="form-group">
+                <label for="role">Job Role:</label>
+                <select class="custom-select form-control"id="role">
+                  <option value="full stack js developer">Full Stack JavaScript Developer</option>
+                  <option value="front end developer">Front End Developer</option>
+                  <option value="back end developer">Back End Developer</option>
+                  <option value="designer">Designer</option>
+                  <option value="student">Student</option> 
+                </select>
+              </div>
+              <hr class="my-4">
+              <h5 class="mb-4">Which Topics Interest You Most?</h5>
+              
+              <div class="form-check">
+                <!--This is how the instructon showed us how to do this part. Bootstrop must have been updated since the video because the below does not work. Using something from the current version of Bootstrap along with the "custom-control" class to make this part work. I will have to play around with this to see if I can get the styled checkboxes with the blue border and background to work.
+                <label class="custon-control custom-checkbox">
+                  <input class="custon-control-input" type="checkbox">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">JavaScript Frameworks</span>
+                </label>-->
+                
+                <label class="form-check-label custon-control" for="option1">
+                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                  JavaScript Frameworks
+                </label>
+              </div>
+              
+              <div class="form-check">  
+                <label class="form-check-label custon-control" for="option1">
+                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                  JavaScript Libraries
+                </label>
+              </div>
+              
+              <div class="form-check">  
+                <label class="form-check-label custon-control" for="option1">
+                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                  Node.js
+                </label>
+              </div>
+              
+              <div class="form-check">  
+                <label class="form-check-label custon-control" for="option1">
+                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                  Build Tools
+                </label>
+              </div>
+              
+              <div class="form-check">  
+                <label class="form-check-label custon-control" for="option1">
+                  <input class="form-check-input" type="checkbox" value="" id="option1">
+                  ES2015
+                </label>
+              </div>
+              
+              <hr class="mb-4" />
+              <h5 class="mb-4">Payment Info</h5>
+              
+              <!--The class "form-group" below is used to apply a bottom margin to each label and input group. The class "form-row" removes the default gutters from each column so they are tighter next to each other.-->
+              <div class="form-row">
+                <div class="col-lg-6 form-group">
+                  <label for="cc-num">Card Number:</label>
+                  <input class="form-control" id="cc-num" type="text">
+                </div>
+              
+                <div class="col-lg form-group">
+                  <label for="zip">Zip Code:</label>
+                  <input class="form-control" id="zip" type="text">
+                </div>
+              
+                <div class="col-lg form-group">
+                  <label for="cvv">CVV:</label>
+                  <input class="form-control" id="cvv" type="text">
+                </div>
+              </div>
+              
+              <!--The reason the label has a class col-lg-12 is because it is supposed to be on its own line.-->
+              <div class="form-row">
+                <label class="col-lg-12">Expiration Date:</label>
+                
+                <div class="form-group col-lg-8">
+                  <select class="custom-select form-control" id="exp-month">
+                    <option value="1">1 - January</option>
+                    <option value="2">2 - February</option>
+                    <option value="3">3 - March</option>
+                    <option value="4">4 - April</option>
+                    <option value="5">5 - May</option>
+                    <option value="6">6 - June</option>
+                    <option value="7">7 - July</option>
+                    <option value="8">8 - August</option>
+                    <option value="9">9 - September</option>
+                    <option value="10">10 - October</option>
+                    <option value="11">11 - November</option> 
+                    <option value="12">12 - December</option>
+                  </select>
+                </div>
+                
+                <div class="form-group col-lg">
+                  <select class="custom-select form-control" id="exp-year">
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                  </select> 
+                </div>                
+              </div>
+              
+              <hr class="mb-4" />
+              <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            </form><!--End Registration Form-->
+          </div>
+          <!--This was removed in the course since we are not using it. I am keeping it for reference.
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>-->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
