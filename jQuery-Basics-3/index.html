@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Star Wars Spoilers</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+	<img src="img/deathstar.png" />
+	<p class="spoiler">
+		<span>Darth Vader is Luke Skywalker's Father! Noooooooooooo!</span>
+    <!--Removing this because we are using jQuery to create and insert this button for us.
+    <button>Reveal Spoiler</button>
+    -->
+	</p>
+  <p class="spoiler">
+		<span>Jar Jar Binks is Sith!</span>
+    <!--Removing this because we are using jQuery to create and insert this button for us.
+    <button>Reveal Spoiler</button>
+    -->
+	</p>
+  
+  <!--Load JS files at the end so that the rest of the page's CSS and content can load faster. This way the jQuery can actually manipulate the content since it is already loaded on the page. You can also use a CDN, content delivery network, to load the jQuery file from an external server.-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/app.js"></script><!--You always want to load the jQuery file above first before your js file. This way any methods you call early on will have the appropriate file to pull them from.-->
+</body>
+</html>
