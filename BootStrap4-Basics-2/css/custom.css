@@ -1,0 +1,11 @@
+/*The CSS below is meant to overwrite and customize this site. This is an example of how to do it when you are bringing in the default CSS file for this using a CDN.*/
+
+.navbar .navbar-brand {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+}
+
+.jumbotron {
+  background-image: url("../img/jumbo-bg.jpg");
+  background-size: cover; /*This adjusts the background image so that we see the full image while maintaining its width and height dimensions.*/
+}
